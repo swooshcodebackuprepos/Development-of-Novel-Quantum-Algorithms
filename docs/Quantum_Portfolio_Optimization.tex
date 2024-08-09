@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+
+\title{Quantum Portfolio Optimization}
+\author{Nigel K. Phillips}
+\date{July 24, 2024}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This project leverages quantum computing to optimize financial portfolios using real-world data. The aim is to explore the application of quantum algorithms to enhance the efficiency and scalability of financial optimization tasks.
+\end{abstract}
+
+\section{Introduction}
+The objective of this project is to leverage quantum computing for optimizing financial portfolios using real-world data. This project explores the application of quantum algorithms to enhance the efficiency and scalability of financial optimization tasks.
+
+\section{Methodology}
+\subsection{Data Collection}
+\begin{itemize}
+    \item \textbf{Source:} Yahoo Finance API
+    \item \textbf{Assets:} S\&P 500, EuroStoxx 50, Nikkei 225, FTSE 100, Gold
+    \item \textbf{Period:} January 2019 to May 2024
+\end{itemize}
+
+\subsection{Data Preprocessing}
+\begin{itemize}
+    \item Filled missing values using forward fill.
+    \item Calculated daily returns from adjusted closing prices.
+\end{itemize}
+
+\subsection{Model Creation}
+The Binary Quadratic Model (BQM) was formulated using mean returns and the correlation matrix.
+\begin{itemize}
+    \item \textbf{Variables:} Represent asset selection.
+    \item \textbf{Objective:} Maximize returns with constraints modeled by the correlation matrix.
+\end{itemize}
+
+\subsection{Quantum Optimization}
+\begin{itemize}
+    \item \textbf{Solver Used:} D-Wave Leap Hybrid Sampler
+    \item \textbf{Optimization Process:}
+        \begin{enumerate}
+            \item Define BQM for the assets.
+            \item Use the quantum solver to find the optimal portfolio.
+            \item Measure computation time.
+        \end{enumerate}
+\end{itemize}
+
+\section{Results}
+\subsection{Optimal Portfolio}
+\begin{itemize}
+    \item \textbf{Selected Assets:} Nikkei 225 (Index 2)
+    \item \textbf{Allocation:} \{0: 0, 1: 0, 2: 1, 3: 0, 4: 0\}
+\end{itemize}
+
+\subsection{Quantum Computation Time}
+\begin{itemize}
+    \item \textbf{Total Time:} Approximately 3.54 seconds
+\end{itemize}
+
+\subsection{Scalability Testing}
+\begin{itemize}
+    \item \textbf{Expanded Problem Sizes:} Tested with 10, 20, 30, 40, 50 assets.
+    \item \textbf{Computation Times:}
+    \begin{itemize}
+        \item 10 assets: 3.99 seconds
+        \item 20 assets: 3.60 seconds
+        \item 30 assets: 3.47 seconds
+        \item 40 assets: 3.67 seconds
+        \item 50 assets: 3.73 seconds
+    \end{itemize}
+\end{itemize}
+
+\section{Analysis}
+\subsection{Efficiency and Performance}
+The quantum solver demonstrated efficient computation times across different problem sizes.
+
+\subsection{Practical Implications}
+The model selected a practical portfolio allocation based on historical data, demonstrating its potential utility in real-world financial optimization.
+
+\subsection{Scalability}
+The scalability testing showed that the quantum approach could handle larger datasets efficiently. While the results are promising, further testing with even larger datasets and more complex models is needed to fully realize the quantum advantage.
+
+\subsection{Future Work}
+\begin{itemize}
+    \item Experiment with different solver parameters to optimize results.
+    \item Incorporate additional financial indicators and constraints to refine the model.
+    \item Collaborate with financial experts to validate and improve the practical applicability of the model.
+\end{itemize}
+
+\section{Conclusion}
+This project successfully demonstrated the application of quantum computing in financial portfolio optimization, highlighting its potential for efficient and scalable solutions.
+
+\section{Appendix}
+\subsection{Code Listings}
+\lstinputlisting[language=Python, caption={fetch\_data.py}]{../src/fetch_data.py}
+\lstinputlisting[language=Python, caption={preprocess\_data.py}]{../src/preprocess_data.py}
+\lstinputlisting[language=Python, caption={create\_bqm.py}]{../src/create_bqm.py}
+\lstinputlisting[language=Python, caption={solve\_bqm.py}]{../src/solve_bqm.py}
+\lstinputlisting[language=Python, caption={measure\_time.py}]{../src/measure_time.py}
+
+\end{document}

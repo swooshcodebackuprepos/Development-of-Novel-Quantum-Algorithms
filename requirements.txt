@@ -1,0 +1,6 @@
+yfinance
+pandas
+dwave-ocean-sdk
+qiskit
+gurobipy
+qiskit-optimization
