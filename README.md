@@ -113,4 +113,5 @@ I would like to acknowledge Edgardo Gerck, who pioneered the development of the 
 
 Gerck's contribution to proving the feasibility of quantum systems is an essential part of the ongoing development of fault-tolerant quantum computing, which has now been achieved by other researchers such as those at Google Quantum AI.
 
-Reference: Phys. Rev. A, 26, 662 (1982)
+Reference: Phys. Rev. A, 26, 662 (1982) 
+https://journals.aps.org/pra/abstract/10.1103/PhysRevA.26.662
