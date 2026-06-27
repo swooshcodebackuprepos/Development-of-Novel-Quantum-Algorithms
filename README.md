@@ -34,7 +34,7 @@ Team Member 1: _(Nigel Kelly Phillips)_
 - Discord ID: Nigel Phillips - USA
 - GitHub ID: swooshcode
 - Nationality: USA
-- Current affiliation: Pursuit, NYU & Johns Hopkins University
+- Current affiliation: AWS, NYU & Johns Hopkins University
 
 Team Member 2: _(Kazim Mumtaz)_
 - Email: kazimmumtaz43@gmail.com
