@@ -34,14 +34,14 @@ Team Member 1: _(Nigel Kelly Phillips)_
 - Discord ID: Nigel Phillips - USA
 - GitHub ID: swooshcode
 - Nationality: USA
-- Current affiliation: Pursuit, SNHU
+- Current affiliation: Pursuit, NYU & Johns Hopkins University
 
 Team Member 2: _(Kazim Mumtaz)_
 - Email: kazimmumtaz43@gmail.com
 - Discord ID:1129297221142196316
 - GitHub ID: KazimMumtaz
 - Nationality: Pakistani
-- Current affiliation: N/A
+- Current affiliation: Quaid-i-Azam School Gojra
 
 
 Team Member 3: _(Tulsi Chaudhari)_
@@ -49,7 +49,7 @@ Team Member 3: _(Tulsi Chaudhari)_
  - Discord ID: CrabbyPohtato
  - GitHub ID: Tatgithub02
  - Nationality: Indian
- - Current affiliation: N/A
+ - Current affiliation: QUCAN
 
 ### Project Solution:
 _Include a comprehensive summary of all important information about your project solution here._
