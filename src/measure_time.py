@@ -2,6 +2,7 @@ from dwave.system import LeapHybridSampler
 import pandas as pd
 import time
 import dimod
+from create_bqm import create_real_world_bqm
 
 def measure_quantum_time(bqm):
     start_time = time.time()
