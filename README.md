@@ -1,34 +1,7 @@
-# Development-of-Novel-Quantum-Algorithms
-Womanium Quantum+AI 2024 Projects
+# Development of Novel Quantum Algorithms
+A submission to Womanium Quantum+AI 2024. This project leverages quantum computing to optimize financial portfolios using real-world data. Click [here](https://drive.google.com/file/d/1PGNUShboB4ik_JHZGcIPTh3KYi-aajzp/view?usp=sharing) for a comprehensive project description.
 
-_**Do NOT delete/ edit the format of this read.me file.**_
-
-_**Include all necessary information only as per the given format.**_
-
-## Project Information:
-
-### Team Size:
-  - Maximum team size = 3
-  - While individual participation is also welcome, we highly recommend team participation :)
-
-### Eligibility:
-  - All nationalities, genders, and age groups are welcome to participate in the projects.
-  - All team participants must be enrolled in Womanium Quantum+AI 2024.
-  - Everyone is eligible to participate in this project and win Womanium grants.
-  - Everyone is eligible for Womanium QSL fellowships with Classiq.
-  - All successful project submissions earn the Womanium Project Certificate.
-
-### Project Description:
-  - Click [here](https://drive.google.com/file/d/1PGNUShboB4ik_JHZGcIPTh3KYi-aajzp/view?usp=sharing) to view the project description.
-
-## Project Submission:
-All information in this section will be considered for project submission and judging.
-
-Ensure your repository is public and submitted by **August 9, 2024, 23:59pm US ET**.
-
-Ensure your repository does not contain any personal or team tokens/access information to access backends. Ensure your repository does not contain any third-party intellectual property (logos, company names, copied literature, or code). Any resources used must be open source or appropriately referenced.
-
-### Team Information:
+## Team Information:
 Team Member 1: _(Nigel Kelly Phillips)_
 - Email: nigelphillips@pursuit.org
 - Discord ID: Nigel Phillips - USA
@@ -43,7 +16,6 @@ Team Member 2: _(Kazim Mumtaz)_
 - Nationality: Pakistani
 - Current affiliation: Quaid-i-Azam School Gojra
 
-
 Team Member 3: _(Tulsi Chaudhari)_
  - Email: Tchaudhari049@gmail.com
  - Discord ID: CrabbyPohtato
@@ -51,17 +23,7 @@ Team Member 3: _(Tulsi Chaudhari)_
  - Nationality: Indian
  - Current affiliation: QUCAN
 
-### Project Solution:
-_Include a comprehensive summary of all important information about your project solution here._
-All necessary code files and any additional information required to judge your project solution should be included in the repository. 
-
-### Project Presentation Deck:
-_Link a 5min. presentation recording or deck here._
-
 # Quantum Portfolio Optimization
-
-## Overview
-This project leverages quantum computing to optimize financial portfolios using real-world data.
 
 ## Methodology
 1. **Data Collection:** 
@@ -92,18 +54,50 @@ This project leverages quantum computing to optimize financial portfolios using 
 - Computation times for problem sizes: [10, 20, 30, 40, 50]
 - Quantum Times: [3.99, 3.60, 3.47, 3.67, 3.73] seconds
 
-## Files
-- `src/`: Source code for data processing and optimization.
-- `notebooks/`: Jupyter notebooks for interactive analysis.
-- `docs/`: Detailed documentation.
-- `presentation/`: Presentation summarizing the project.
+# Reproducing the work
 
-## Setup
-1. Install requirements: `pip install -r requirements.txt`
+## Included folders
+- `data/`: Cached CSVs that allow the pipeline to run without live API calls.
+- `docs/`: Detailed methodological and analaysis documentation.
+- `notebooks/`: Jupyter notebooks for interactive analysis.
+- `presentation/`: Presentation summarizing the project.
+- `src/`: Source code for data processing and optimization.
+
+## Reproducibility steps
+1. Ensure you are using Python 3.11.
+2. Install requirements: `pip install -r requirements.txt`
 2. Run the data fetching: `python src/fetch_data.py`
-3. Run the data preprocessing: `python src/preprocess_data.py`
-4. Run the optimization: `python src/solve_bqm.py`
-5. Measure computation time: `python src/measure_time.py`
+3. Run the create model: `python src/create_bqm.py`
+4. Run the data preprocessing: `python src/preprocess_data.py`
+5. Run the optimization: `python src/solve_bqm.py`
+  * If you don't have access to the API, solve it locally instead: `python src/solve_local.py`
+  * `solve_local.py` uses `dimod.ExactSolver` to verify BQM construction without a D-Wave Leap API credential. This is a reproducibility aid, not a substitute for the D-Wave Leap Hybrid Sampler.
+6. Measure computation time: `python src/measure_time.py`
+7. Run a local jupyter notebook server: `Jupyter notebook`
+8. Open `notebooks/Novel Quantum Algorithm.ipynb` and click on: `Kernel > Restart & Run All Cells`
+
+## Local data files
+
+These files allow the workflow to be run without needing live API calls. There are two local data files:
+
+- `historical_data.csv` — Adjusted close prices (S&P 500, STOXX50E, N225, FTSE, GLD),
+  2019-01-01 to 2024-05-31
+- `returns.csv` — Daily percentage returns derived from the above
+
+If you want to regenerate the local data:
+
+1. Install the required dependencies: `pip install yfinance==1.7.0 curl_cffi`
+2. Run the script to fetch data: `python src/fetch_data.py`
+
+`fetch_data.py` downloads data from Yahoo Finance via the `yfinance` library. Two known issues
+affected reproduction:
+
+- **Yahoo tightened its bot protection in 2024–2025**, causing `yfinance` versions ≤ 0.2.50 to return `YFTzMissingError`. The fix uses `curl_cffi` as the HTTP    session with browser impersonation, and a newer `yfinance` version (1.7.0) for the download step only.
+
+- **`Adj Close` was removed from yfinance ≥ 0.2.51.** The original code relies on that column. The workaround uses `auto_adjust=False` with yfinance 1.7.0 to    retrieve `Adj Close`, then reverts to yfinance 0.2.50 for the rest of the pipeline.
+
+3. Install a newer version of yfinance to process the data: `pip install yfinance==0.2.50`
+4. Run the data preprocessing script: `python src/preprocess_data.py`
 
 ## Authors
 - Nigel K. Phillips
