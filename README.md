@@ -86,7 +86,7 @@ These files allow the workflow to be run without needing live API calls. There a
 
 If you want to regenerate the local data:
 
-1. Install the required dependencies: `pip install yfinance==1.7.0 curl_cffi`
+1. Install the necessary version of `yfinance`: `pip install yfinance==1.7.0`
 2. Run the script to fetch data: `python src/fetch_data.py`
 
 `fetch_data.py` downloads data from Yahoo Finance via the `yfinance` library. Two known issues
