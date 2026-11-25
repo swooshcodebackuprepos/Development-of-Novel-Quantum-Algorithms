@@ -115,3 +115,6 @@ Gerck's contribution to proving the feasibility of quantum systems is an essenti
 
 Reference: Phys. Rev. A, 26, 662 (1982) 
 https://journals.aps.org/pra/abstract/10.1103/PhysRevA.26.662
+
+## Reproducibility
+Follow data/README.md (introduced in the v1 September 23 update) for local data usage and regeneration steps (historical_data.csv and returns.csv) rather than the older src/README.md. Notebook visualization cells and external cloud API calls (such as D-Wave Leap or Classiq) are separate from the standard local terminal workflow.
